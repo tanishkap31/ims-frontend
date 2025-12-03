@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="style-forgot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="glass-card">
+        <h2>Forgot Password?</h2>
+        <p class="sub">Enter your email and role, and we will send you a reset link</p>
+
+        <form id="forgotForm">
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-box">
+                <select id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit" class="reset-btn">Send Reset Link</button>
+
+            <p class="back"><a href="login.html">Back to Login</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("forgotForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let role = document.getElementById("role").value;
+
+            let req = await fetch("http://localhost:8080/forgot", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, role: role })
+            });
+
+            let res = await req.text();
+            alert(res);
+
+            if (res.includes("Password reset link sent")) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

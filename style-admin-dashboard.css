@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(120deg, #4e54c8, #8f94fb);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    color: white;
+}
+
+    .sidebar .logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .sidebar ul li {
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+        }
+
+            .sidebar ul li.active,
+            .sidebar ul li:hover {
+                background: rgba(255,255,255,0.2);
+                border-radius: 8px;
+            }
+
+.logout-btn {
+    margin-top: 40px;
+    width: 100%;
+    padding: 12px;
+    background: #ff4b5c;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+    color: white;
+}
+
+.subtitle {
+    opacity: 0.9;
+}
+
+.stats {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    width: 200px;
+    padding: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+
+    .card h3 {
+        margin: 0;
+    }
+
+    .card p {
+        font-size: 28px;
+        margin-top: 10px;
+    }

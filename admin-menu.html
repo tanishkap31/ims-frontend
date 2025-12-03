@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Menu</title>
+
+    <!-- reuse same CSS as admin dashboard -->
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ROLE PROTECTION: only admin allowed -->
+    <script>
+    const role = localStorage.getItem("role");
+    if (role !== "admin") {
+        alert("Access Denied!");
+        window.location.href = "login.html";
+    }
+    </script>
+
+    <div class="container">
+
+        <!-- SIDEBAR (same as admin dashboard) -->
+        <div class="sidebar">
+            <h2 class="logo">Admin</h2>
+
+            <ul>
+                <li onclick="location.href='admin-dashboard.html'">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </li>
+                <li class="active">
+                    <i class="fa fa-bars"></i> Menu
+                </li>
+                <li><i class="fa fa-cog"></i> Settings</li>
+            </ul>
+
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+
+        <!-- MAIN CONTENT: ADMIN MENU SECTION -->
+        <div class="main">
+            <h1>Admin Menu</h1>
+            <p class="subtitle">Only admin can see and use these options.</p>
+
+            <div class="stats">
+
+                <!-- Add User -->
+                <div class="card" onclick="alert('Open Add User Page')">
+                    <h3>➕ Add User</h3>
+                    <p>Create a new user account.</p>
+                </div>
+
+                <!-- View Users -->
+                <div class="card" onclick="alert('Open View Users Page')">
+                    <h3>👥 View Users</h3>
+                    <p>See and manage all users.</p>
+                </div>
+
+                <!-- Reports -->
+                <div class="card" onclick="alert('Open Reports Page')">
+                    <h3>📊 Reports</h3>
+                    <p>Check system usage reports.</p>
+                </div>
+
+                <!-- System Settings -->
+                <div class="card" onclick="alert('Open System Settings Page')">
+                    <h3>⚙ System Settings</h3>
+                    <p>Change configuration and permissions.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+    // logout logic same as before
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+        localStorage.clear();
+        window.location.href = "login.html";
+    });
+    </script>
+
+</body>
+</html>

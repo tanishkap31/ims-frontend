@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <script>
+        // ROLE PROTECTION
+        let role = localStorage.getItem("role");
+        if (role !== "admin") {
+            alert("Access Denied!");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <div class="container">
+
+        <!------ SIDEBAR ------>
+        <div class="sidebar">
+            <h2 class="logo">Admin</h2>
+
+            <ul>
+                <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+                <li onclick="location.href='admin-menu.html'">
+                    <i class="fa fa-bars"></i> Menu
+                </li>
+                <li><i class="fa fa-cog"></i> Settings</li>
+            </ul>
+
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+
+        <!------ MAIN AREA ------>
+        <div class="main">
+            <h1>Welcome Admin 👑</h1>
+            <p class="subtitle">Manage the full system from here.</p>
+
+            <div class="stats">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>120</p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Orders</h3>
+                    <p>45</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pending Tasks</h3>
+                    <p>8</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const role = localStorage.getItem("role");
+
+        if (role !== "admin") {
+            alert("Access Denied!");
+            window.location.href = "login.html";
+        }
+    </script>
+
+
+</body>
+</html>

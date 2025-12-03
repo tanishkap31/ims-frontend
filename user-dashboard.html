@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="css/user-dashboard.css">
+</head>
+
+<body>
+
+<script>
+    let role = localStorage.getItem("role");
+    if (role !== "user") {
+        alert("Access Denied!");
+        window.location.href = "login.html";
+    }
+</script>
+
+<div class="container">
+    <h1>Welcome User 👋</h1>
+    <p>Enjoy your experience!</p>
+    
+    <button id="logoutBtn" class="logout">Logout</button>
+</div>
+
+<script>
+    const role = localStorage.getItem("role");
+
+    if (role !== "user") {
+        alert("Access Denied!");
+        window.location.href = "login.html";
+    }
+</script>
+
+
+</body>
+</html>
